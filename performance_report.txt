@@ -1,0 +1,98 @@
+DISTRIBUTED MATRIX MULTIPLICATION PERFORMANCE REPORT
+============================================================
+
+Test Configuration:
+- CPU Cores Available: 8
+- Matrix Sizes Tested: [500, 1000, 1500]
+- Process Counts: [1, 2, 4, 8]
+
+Detailed Results:
+----------------------------------------
+
+Test: Matrix 500x500 with 1 processes
+  Sequential Time: 0.0033s
+  Parallel Time: 0.0022s
+  Speedup: 1.50x
+  Efficiency: 149.6%
+
+Test: Matrix 500x500 with 2 processes
+  Sequential Time: 0.0021s
+  Parallel Time: 0.6599s
+  Speedup: 0.00x
+  Efficiency: 0.2%
+
+Test: Matrix 500x500 with 4 processes
+  Sequential Time: 0.0020s
+  Parallel Time: 0.6772s
+  Speedup: 0.00x
+  Efficiency: 0.1%
+
+Test: Matrix 500x500 with 8 processes
+  Sequential Time: 0.0049s
+  Parallel Time: 1.1825s
+  Speedup: 0.00x
+  Efficiency: 0.1%
+
+Test: Matrix 1000x1000 with 1 processes
+  Sequential Time: 0.0160s
+  Parallel Time: 0.0148s
+  Speedup: 1.08x
+  Efficiency: 108.0%
+
+Test: Matrix 1000x1000 with 2 processes
+  Sequential Time: 0.0132s
+  Parallel Time: 0.7695s
+  Speedup: 0.02x
+  Efficiency: 0.9%
+
+Test: Matrix 1000x1000 with 4 processes
+  Sequential Time: 0.0168s
+  Parallel Time: 0.9245s
+  Speedup: 0.02x
+  Efficiency: 0.5%
+
+Test: Matrix 1000x1000 with 8 processes
+  Sequential Time: 0.0243s
+  Parallel Time: 1.4444s
+  Speedup: 0.02x
+  Efficiency: 0.2%
+
+Test: Matrix 1500x1500 with 1 processes
+  Sequential Time: 0.0439s
+  Parallel Time: 0.0390s
+  Speedup: 1.12x
+  Efficiency: 112.3%
+
+Test: Matrix 1500x1500 with 2 processes
+  Sequential Time: 0.0385s
+  Parallel Time: 0.7529s
+  Speedup: 0.05x
+  Efficiency: 2.6%
+
+Test: Matrix 1500x1500 with 4 processes
+  Sequential Time: 0.0388s
+  Parallel Time: 0.8244s
+  Speedup: 0.05x
+  Efficiency: 1.2%
+
+Test: Matrix 1500x1500 with 8 processes
+  Sequential Time: 0.0387s
+  Parallel Time: 1.2933s
+  Speedup: 0.03x
+  Efficiency: 0.4%
+
+========================================
+PERFORMANCE ANALYSIS
+========================================
+
+Best Speedup: 1.50x
+Configuration: 500x500 matrix, 1 processes
+
+Best Efficiency: 149.6%
+Configuration: 500x500 matrix, 1 processes
+
+Conclusions:
+- Python's numpy uses optimized BLAS libraries, making sequential very fast
+- Multiprocessing overhead dominates for small/medium matrices
+- Real MPI implementation would show better scaling characteristics
+- GPU acceleration (OpenCL) would provide significant speedup for large matrices
